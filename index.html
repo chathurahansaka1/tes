@@ -263,7 +263,87 @@
                 margin-bottom: 30px;
             }
         }
+        /* Projects Section Styles */
+        .projects-section {
+            position: relative;
+            z-index: 2;
+            padding: 100px 20px;
+            background-color: #000000;
+        }
 
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background-color: #000000;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #39ff14;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        .project-preview {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #39ff14;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project-links a {
+            color: #39ff14;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: #a6f1d9;
+        }
+
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -405,6 +485,45 @@
                     <div class="tech-item">PHP</div>
                     <div class="tech-item">MySQL</div>
                     <div class="tech-item">MongoDB</div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="project1-preview.jpg" alt="Project 1 Preview" class="project-preview">
+                <div class="project-content">
+                    <h3 class="project-title">Project 1</h3>
+                    <p class="project-description">A brief description of the first project.</p>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="#">Source Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="project2-preview.jpg" alt="Project 2 Preview" class="project-preview">
+                <div class="project-content">
+                    <h3 class="project-title">Project 2</h3>
+                    <p class="project-description">A brief description of the second project.</p>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="#">Source Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="project3-preview.jpg" alt="Project 3 Preview" class="project-preview">
+                <div class="project-content">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-description">A brief description of the third project.</p>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="#">Source Code</a>
+                    </div>
                 </div>
             </div>
         </div>
