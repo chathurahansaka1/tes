@@ -1,341 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Portfolio</title>
-  <style>
-    /* General Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        body {
+            background-color: #0a192f;
+            color: #ffffff;
+        }
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #1e1e1e;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #4caf50;
-    }
+        .home-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-    }
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
 
-    .nav-links li {
-      margin-left: 1rem;
-    }
+        .greeting {
+            color: #64ffda;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards;
+        }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #ffffff;
-      transition: color 0.3s ease;
-    }
+        .name {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards 0.2s;
+        }
 
-    .nav-links a:hover {
-      color: #4caf50;
-    }
+        .description {
+            font-size: 1.5rem;
+            color: #8892b0;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards 0.4s;
+        }
 
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-    }
+        .cta-button {
+            padding: 15px 30px;
+            background-color: transparent;
+            border: 2px solid #64ffda;
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards 0.6s;
+        }
 
-    .hero-content {
-      text-align: center;
-    }
+        .cta-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
 
-    .hero h1 {
-      font-size: 3rem;
-      animation: fadeInUp 1s ease-in-out;
-    }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    .btn {
-      padding: 0.8rem 1.5rem;
-      background-color: #4caf50;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #3e8e41;
-      transform: scale(1.05);
-    }
-
-    /* About Section */
-    .about {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .about h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #4caf50;
-    }
-
-    .about-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .profile-pic {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      animation: fadeIn 1s ease-in-out;
-      border: 4px solid #4caf50;
-    }
-
-    /* Projects Section */
-    .projects {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .project-card {
-      background-color: #282828;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(76, 175, 80, 0.2);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .project-card h3 {
-      margin: 1rem;
-      color: #4caf50;
-    }
-
-    .project-card p {
-      margin: 0 1rem 1rem;
-    }
-
-    /* Contact Section */
-    .contact {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #4caf50;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: none;
-      border-radius: 5px;
-      background-color: #282828;
-      color: #ffffff;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      background-color: #3e3e3e;
-    }
-
-    .contact-form textarea {
-      resize: none;
-      height: 100px;
-    }
-
-    .contact-form .btn {
-      margin-top: 1rem;
-    }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 1rem 0;
-      background-color: #1e1e1e;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .name {
+                font-size: 3rem;
+            }
+            .description {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">My Portfolio</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <div id="particles-js"></div>
+    <section class="home-section">
+        <div class="content">
+            <p class="greeting">Hello, I'm</p>
+            <h1 class="name">Your Name</h1>
+            <p class="description">Frontend Developer & UI/UX Designer</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1>Hello, I'm John Doe</h1>
-      <p>A passionate developer creating beautiful and functional web applications.</p>
-      <button class="btn">View My Work</button>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic">
-      <p>
-        I am a frontend developer specializing in creating responsive and user-friendly websites.
-        With years of experience in HTML, CSS, JavaScript, and modern frameworks like React, I bring ideas to life.
-      </p>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300" alt="Project 1">
-        <h3>Project One</h3>
-        <p>A description of the first project goes here.</p>
-      </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300" alt="Project 2">
-        <h3>Project Two</h3>
-        <p>A description of the second project goes here.</p>
-      </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300" alt="Project 3">
-        <h3>Project Three</h3>
-        <p>A description of the third project goes here.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <form action="#" method="POST" class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2023 John Doe. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+    <script>
+        particlesJS('particles-js',
+            {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#64ffda"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#64ffda",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 3,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    }
+                },
+                "retina_detect": true
+            }
+        );
+    </script>
 </body>
 </html>
