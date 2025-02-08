@@ -1,43 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Portfolio</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1e1e1e;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4caf50;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin-left: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #4caf50;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #3e8e41;
+      transform: scale(1.05);
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4caf50;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in-out;
+      border: 4px solid #4caf50;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background-color: #282828;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(76, 175, 80, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-card h3 {
+      margin: 1rem;
+      color: #4caf50;
+    }
+
+    .project-card p {
+      margin: 0 1rem 1rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4caf50;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #282828;
+      color: #ffffff;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      background-color: #3e3e3e;
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .contact-form .btn {
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #1e1e1e;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loader"></div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">My Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Hello, I'm John Doe</h1>
+      <p>A passionate developer creating beautiful and functional web applications.</p>
+      <button class="btn">View My Work</button>
     </div>
+  </section>
 
-    <!-- Navigation Menu -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic">
+      <p>
+        I am a frontend developer specializing in creating responsive and user-friendly websites.
+        With years of experience in HTML, CSS, JavaScript, and modern frameworks like React, I bring ideas to life.
+      </p>
+    </div>
+  </section>
 
-    <!-- Page Sections -->
-    <section id="home">
-        <h1>Welcome to My Portfolio</h1>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300" alt="Project 1">
+        <h3>Project One</h3>
+        <p>A description of the first project goes here.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>A description of the second project goes here.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300" alt="Project 3">
+        <h3>Project Three</h3>
+        <p>A description of the third project goes here.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form action="#" method="POST" class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-    </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2023 John Doe. All rights reserved.</p>
+  </footer>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-    </section>
+  <script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
 
-    <script src="script.js"></script>
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
