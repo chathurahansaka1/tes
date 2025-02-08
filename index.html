@@ -19,7 +19,7 @@
         }
 
         #particles-js {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
             z-index: 1;
@@ -81,6 +81,75 @@
             transform: translateY(-3px);
         }
 
+        /* Skills Section Styles */
+        .skills-section {
+            position: relative;
+            z-index: 2;
+            padding: 100px 20px;
+            background-color: rgba(10, 25, 47, 0.8);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ccd6f6;
+            margin-bottom: 50px;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .skill-card {
+            background-color: #112240;
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.1);
+        }
+
+        .skill-category {
+            color: #64ffda;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #8892b0;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #233554;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #64ffda;
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease;
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -99,21 +168,249 @@
             .description {
                 font-size: 1.2rem;
             }
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
         }
+.about-section {
+            position: relative;
+            z-index: 2;
+            padding: 100px 20px;
+            background-color: rgba(10, 25, 47, 0.8);
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .about-image-container:hover .image-border {
+            top: 10px;
+            left: 10px;
+        }
+
+        .about-content {
+            color: #8892b0;
+        }
+
+        .about-title {
+            color: #ccd6f6;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-description {
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            color: #64ffda;
+        }
+
+        .tech-item:before {
+            content: "▹";
+            margin-right: 10px;
+            color: #64ffda;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image-container {
+                margin-bottom: 30px;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
+    
+    <!-- Home Section -->
     <section class="home-section">
         <div class="content">
             <p class="greeting">Hello, I'm</p>
             <h1 class="name">Your Name</h1>
             <p class="description">Frontend Developer & UI/UX Designer</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
+            <a href="#skills" class="cta-button">View My Skills</a>
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+            <!-- Frontend Development Card -->
+            <div class="skill-card">
+                <h3 class="skill-category">Frontend Development</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>HTML5/CSS3</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>JavaScript</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>React.js</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend Development Card -->
+            <div class="skill-card">
+                <h3 class="skill-category">Backend Development</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Node.js</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PHP</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>MySQL</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Tools Card -->
+            <div class="skill-card">
+                <h3 class="skill-category">Design Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Figma</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Adobe XD</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Photoshop</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- About Section -->
+    <section id="about" class="about-section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+            <div class="about-image-container">
+                <img src="/api/placeholder/400/400" alt="Profile Photo" class="about-image">
+                <div class="image-border"></div>
+            </div>
+            <div class="about-content">
+                <h3 class="about-title">Let me introduce myself</h3>
+                <p class="about-description">
+                    Hello! I'm a passionate web developer with a keen interest in creating beautiful and functional websites. 
+                    I enjoy building everything from small business sites to rich interactive web apps.
+                </p>
+                <p class="about-description">
+                    With 3 years of experience in web development, I've worked on various projects that have helped me develop 
+                    a strong understanding of user experience, responsive design, and modern web technologies.
+                </p>
+                <div class="tech-stack">
+                    <div class="tech-item">JavaScript (ES6+)</div>
+                    <div class="tech-item">React</div>
+                    <div class="tech-item">Node.js</div>
+                    <div class="tech-item">PHP</div>
+                    <div class="tech-item">MySQL</div>
+                    <div class="tech-item">MongoDB</div>
+                </div>
+            </div>
+        </div>
+    </section>
     <script>
+        // Particles.js Configuration
         particlesJS('particles-js',
             {
                 "particles": {
@@ -172,6 +469,23 @@
                 "retina_detect": true
             }
         );
+
+        // Animate progress bars when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Set initial width and observe all progress bars
+        document.querySelectorAll('.progress').forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            bar.setAttribute('data-width', width);
+            observer.observe(bar);
+        });
     </script>
 </body>
 </html>
