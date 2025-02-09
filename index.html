@@ -1,4 +1,326 @@
-<div class="card p-8 rounded-xl h-full">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chathura Hansaka | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #00ffbb;
+            --secondary: #4d59ff;
+            --accent: #ff3366;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--primary); }
+            50% { box-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary); }
+            100% { box-shadow: 0 0 5px var(--primary); }
+        }
+
+        @keyframes border-glow {
+            0% { border-color: var(--primary); }
+            50% { border-color: var(--secondary); }
+            100% { border-color: var(--primary); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent));
+            background-size: 200% auto;
+            animation: gradient 5s ease infinite;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent));
+            background-size: 200% auto;
+            animation: gradient 5s ease infinite;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .glowing {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .border-glowing {
+            animation: border-glow 3s ease-in-out infinite;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 255, 187, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+            color: var(--primary);
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent));
+            background-size: 200% auto;
+            animation: gradient 5s ease infinite;
+            z-index: -1;
+            border-radius: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white">
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold gradient-text">
+                    Chathura Hansaka
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-[var(--primary)] transition-colors duration-300">Home</a>
+                    <a href="#about" class="hover:text-[var(--primary)] transition-colors duration-300">About</a>
+                    <a href="#skills" class="hover:text-[var(--primary)] transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="hover:text-[var(--primary)] transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="px-6 py-2 gradient-bg rounded-full hover:opacity-90 transition-all duration-300 glowing">
+                        Contact Me
+                    </a>
+                </div>
+                <button class="md:hidden text-2xl" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 bg-black/95 z-40 flex items-center justify-center">
+        <div class="flex flex-col items-center space-y-8">
+            <a href="#home" class="text-2xl hover:gradient-text transition-all duration-300">Home</a>
+            <a href="#about" class="text-2xl hover:gradient-text transition-all duration-300">About</a>
+            <a href="#skills" class="text-2xl hover:gradient-text transition-all duration-300">Skills</a>
+            <a href="#projects" class="text-2xl hover:gradient-text transition-all duration-300">Projects</a>
+            <a href="#contact" class="text-2xl hover:gradient-text transition-all duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="floating" data-aos="fade-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    Hi, I'm <span class="gradient-text">Chathura Hansaka</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12">Full Stack Developer & UI/UX Designer</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#projects" class="px-8 py-3 gradient-bg rounded-full hover:opacity-90 transition-all duration-300 glowing">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-[var(--primary)] rounded-full hover:bg-[var(--primary)]/10 transition-all duration-300 border-glowing">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-up">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div class="space-y-6" data-aos="fade-right">
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 gradient-text">Who I Am</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Passionate developer with expertise in creating beautiful and functional web applications. 
+                            I combine technical skills with creative design to build exceptional digital experiences.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="card p-6 rounded-xl text-center">
+                            <h4 class="text-3xl font-bold gradient-text mb-2">5+</h4>
+                            <p class="text-gray-300">Years Experience</p>
+                        </div>
+                        <div class="card p-6 rounded-xl text-center">
+                            <h4 class="text-3xl font-bold gradient-text mb-2">100+</h4>
+                            <p class="text-gray-300">Projects Done</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6" data-aos="fade-left">
+                    <div class="card p-8 rounded-xl">
+                        <h3 class="text-2xl font-semibold mb-4 gradient-text">My Skills</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>Web Development</span>
+                                    <span class="gradient-text">95%</span>
+                                </div>
+                                <div class="h-2 bg-gray-700 rounded-full">
+                                    <div class="h-full w-[95%] gradient-bg rounded-full"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>UI/UX Design</span>
+                                    <span class="gradient-text">90%</span>
+                                </div>
+                                <div class="h-2 bg-gray-700 rounded-full">
+                                    <div class="h-full w-[90%] gradient-bg rounded-full"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>Mobile Development</span>
+                                    <span class="gradient-text">85%</span>
+                                </div>
+                                <div class="h-2 bg-gray-700 rounded-full">
+                                    <div class="h-full w-[85%] gradient-bg rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-black/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-up">Technical Skills</h2>
+            <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="skill-card card p-8 rounded-xl text-center" data-aos="fade-up">
+                    <i class="fab fa-react skill-icon text-[#61DAFB] mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Frontend</h3>
+                    <p class="text-gray-300">React, Vue, Angular</p>
+                </div>
+                <div class="skill-card card p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fab fa-node-js skill-icon text-[#68A063] mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Backend</h3>
+                    <p class="text-gray-300">Node.js, Python, PHP</p>
+                </div>
+                <div class="skill-card card p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-database skill-icon text-[#00ffbb] mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Database</h3>
+                    <p class="text-gray-300">MySQL, MongoDB, Firebase</p>
+                </div>
+                <div class="skill-card card p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-mobile-alt skill-icon text-[#4d59ff] mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Mobile</h3>
+                    <p class="text-gray-300">React Native, Flutter</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-up">Featured Projects</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="project-card" data-aos="fade-up">
+                    <div class="</antArtifact>
+                        <div class="card p-8 rounded-xl h-full">
                         <img src="/api/placeholder/400/300" alt="E-Commerce Project" class="w-full h-48 object-cover rounded-lg mb-6">
                         <h3 class="text-xl font-semibold mb-4">E-Commerce Platform</h3>
                         <p class="text-gray-300 mb-6">Modern e-commerce platform with real-time inventory and payment integration.</p>
