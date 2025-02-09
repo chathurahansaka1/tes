@@ -1,609 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+<div class="card p-8 rounded-xl h-full">
+                        <img src="/api/placeholder/400/300" alt="E-Commerce Project" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <h3 class="text-xl font-semibold mb-4">E-Commerce Platform</h3>
+                        <p class="text-gray-300 mb-6">Modern e-commerce platform with real-time inventory and payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-[#00ffbb]/10 text-[#00ffbb] rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-[#4d59ff]/10 text-[#4d59ff] rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-[#ff3366]/10 text-[#ff3366] rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <a href="#" class="inline-block px-6 py-2 gradient-bg rounded-full hover:opacity-90 transition-all duration-300">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card p-8 rounded-xl h-full">
+                        <img src="/api/placeholder/400/300" alt="Mobile App" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <h3 class="text-xl font-semibold mb-4">Fitness Tracking App</h3>
+                        <p class="text-gray-300 mb-6">Mobile application for tracking workouts and nutrition with AI recommendations.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-[#00ffbb]/10 text-[#00ffbb] rounded-full text-sm">React Native</span>
+                            <span class="px-3 py-1 bg-[#4d59ff]/10 text-[#4d59ff] rounded-full text-sm">Firebase</span>
+                            <span class="px-3 py-1 bg-[#ff3366]/10 text-[#ff3366] rounded-full text-sm">TensorFlow</span>
+                        </div>
+                        <a href="#" class="inline-block px-6 py-2 gradient-bg rounded-full hover:opacity-90 transition-all duration-300">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card p-8 rounded-xl h-full">
+                        <img src="/api/placeholder/400/300" alt="AI Dashboard" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <h3 class="text-xl font-semibold mb-4">AI Analytics Dashboard</h3>
+                        <p class="text-gray-300 mb-6">Real-time analytics dashboard with AI-powered insights and predictions.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-[#00ffbb]/10 text-[#00ffbb] rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-[#4d59ff]/10 text-[#4d59ff] rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-[#ff3366]/10 text-[#ff3366] rounded-full text-sm">AWS</span>
+                        </div>
+                        <a href="#" class="inline-block px-6 py-2 gradient-bg rounded-full hover:opacity-90 transition-all duration-300">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center gradient-text" data-aos="fade-up">Get In Touch</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8" data-aos="fade-right">
+                        <div class="card p-6 rounded-xl">
+                            <i class="fas fa-envelope text-2xl gradient-text mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Email</h3>
+                            <p class="text-gray-300">contact@chathura.com</p>
+                        </div>
+                        <div class="card p-6 rounded-xl">
+                            <i class="fas fa-phone text-2xl gradient-text mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                            <p class="text-gray-300">+94 77 123 4567</p>
+                        </div>
+                        <div class="card p-6 rounded-xl">
+                            <i class="fas fa-map-marker-alt text-2xl gradient-text mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Location</h3>
+                            <p class="text-gray-300">Colombo, Sri Lanka</p>
+                        </div>
+                    </div>
+                    <form class="space-y-6" data-aos="fade-left">
+                        <input type="text" placeholder="Your Name" class="w-full px-6 py-4 card rounded-xl focus:border-[var(--primary)] transition-all duration-300">
+                        <input type="email" placeholder="Your Email" class="w-full px-6 py-4 card rounded-xl focus:border-[var(--primary)] transition-all duration-300">
+                        <textarea rows="5" placeholder="Your Message" class="w-full px-6 py-4 card rounded-xl focus:border-[var(--primary)] transition-all duration-300"></textarea>
+                        <button class="w-full py-4 gradient-bg rounded-xl hover:opacity-90 transition-all duration-300 glowing">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black/30">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="#" class="text-2xl hover:text-[var(--primary)] transition-colors duration-300">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-[var(--primary)] transition-colors duration-300">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-[var(--primary)] transition-colors duration-300">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-[var(--primary)] transition-colors duration-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 Chathura Hansaka. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Particles.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #0a192f;
-            color: #ffffff;
-        }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .home-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .content {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .greeting {
-            color: #64ffda;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            opacity: 0;
-            animation: fadeUp 0.5s ease forwards;
-        }
-
-        .name {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeUp 0.5s ease forwards 0.2s;
-        }
-
-        .description {
-            font-size: 1.5rem;
-            color: #8892b0;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeUp 0.5s ease forwards 0.4s;
-        }
-
-        .cta-button {
-            padding: 15px 30px;
-            background-color: transparent;
-            border: 2px solid #64ffda;
-            color: #64ffda;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeUp 0.5s ease forwards 0.6s;
-        }
-
-        .cta-button:hover {
-            background-color: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
-        }
-
-        /* Skills Section Styles */
-        .skills-section {
-            position: relative;
-            z-index: 2;
-            padding: 100px 20px;
-            background-color: rgba(10, 25, 47, 0.8);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #ccd6f6;
-            margin-bottom: 50px;
-        }
-
-        .skills-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .skill-card {
-            background-color: #112240;
-            padding: 25px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.1);
-        }
-
-        .skill-category {
-            color: #64ffda;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .skill-item {
-            margin-bottom: 20px;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color: #8892b0;
-        }
-
-        .progress-bar {
-            height: 8px;
-            background-color: #233554;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: #64ffda;
-            border-radius: 4px;
-            width: 0;
-            transition: width 1s ease;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .name {
-                font-size: 3rem;
-            }
-            .description {
-                font-size: 1.2rem;
-            }
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-        }
-.about-section {
-            position: relative;
-            z-index: 2;
-            padding: 100px 20px;
-            background-color: rgba(10, 25, 47, 0.8);
-        }
-
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-image-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .about-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .image-border {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid #64ffda;
-            border-radius: 10px;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-
-        .about-image-container:hover .image-border {
-            top: 10px;
-            left: 10px;
-        }
-
-        .about-content {
-            color: #8892b0;
-        }
-
-        .about-title {
-            color: #ccd6f6;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .about-description {
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .tech-stack {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .tech-item {
-            display: flex;
-            align-items: center;
-            color: #64ffda;
-        }
-
-        .tech-item:before {
-            content: "▹";
-            margin-right: 10px;
-            color: #64ffda;
-        }
-
-        @media (max-width: 768px) {
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image-container {
-                margin-bottom: 30px;
-            }
-        }
-        /* Projects Section Styles */
-        .projects-section {
-            position: relative;
-            z-index: 2;
-            padding: 100px 20px;
-            background-color: #000000;
-        }
-
-        .projects-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .project-card {
-            background-color: #000000;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            border: 2px solid #39ff14;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(57, 255, 20, 0.2);
-        }
-
-        .project-thumbnail {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            filter: brightness(0.8);
-        }
-
-        .project-preview {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            filter: brightness(0.8);
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            color: #39ff14;
-            margin-bottom: 10px;
-        }
-
-        .project-description {
-            font-size: 1rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .project-links {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .project-links a {
-            color: #39ff14;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .project-links a:hover {
-            color: #a6f1d9;
-        }
-
-        @media (max-width: 768px) {
-            .projects-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div id="particles-js"></div>
-    
-    <!-- Home Section -->
-    <section class="home-section">
-        <div class="content">
-            <p class="greeting">Hello, I'm</p>
-            <h1 class="name">Your Name</h1>
-            <p class="description">Frontend Developer & UI/UX Designer</p>
-            <a href="#skills" class="cta-button">View My Skills</a>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-container">
-            <!-- Frontend Development Card -->
-            <div class="skill-card">
-                <h3 class="skill-category">Frontend Development</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>HTML5/CSS3</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>JavaScript</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>React.js</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 80%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Backend Development Card -->
-            <div class="skill-card">
-                <h3 class="skill-category">Backend Development</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Node.js</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>PHP</span>
-                        <span>70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 70%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>MySQL</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 80%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Design Tools Card -->
-            <div class="skill-card">
-                <h3 class="skill-category">Design Tools</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Figma</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Adobe XD</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Photoshop</span>
-                        <span>70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 70%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- About Section -->
-    <section id="about" class="about-section">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
-            <div class="about-image-container">
-                <img src="/api/placeholder/400/400" alt="Profile Photo" class="about-image">
-                <div class="image-border"></div>
-            </div>
-            <div class="about-content">
-                <h3 class="about-title">Let me introduce myself</h3>
-                <p class="about-description">
-                    Hello! I'm a passionate web developer with a keen interest in creating beautiful and functional websites. 
-                    I enjoy building everything from small business sites to rich interactive web apps.
-                </p>
-                <p class="about-description">
-                    With 3 years of experience in web development, I've worked on various projects that have helped me develop 
-                    a strong understanding of user experience, responsive design, and modern web technologies.
-                </p>
-                <div class="tech-stack">
-                    <div class="tech-item">JavaScript (ES6+)</div>
-                    <div class="tech-item">React</div>
-                    <div class="tech-item">Node.js</div>
-                    <div class="tech-item">PHP</div>
-                    <div class="tech-item">MySQL</div>
-                    <div class="tech-item">MongoDB</div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <img src="project1-preview.jpg" alt="Project 1 Preview" class="project-preview">
-                <div class="project-content">
-                    <h3 class="project-title">Project 1</h3>
-                    <p class="project-description">A brief description of the first project.</p>
-                    <div class="project-links">
-                        <a href="#">Live Demo</a>
-                        <a href="#">Source Code</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="project2-preview.jpg" alt="Project 2 Preview" class="project-preview">
-                <div class="project-content">
-                    <h3 class="project-title">Project 2</h3>
-                    <p class="project-description">A brief description of the second project.</p>
-                    <div class="project-links">
-                        <a href="#">Live Demo</a>
-                        <a href="#">Source Code</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="project3-preview.jpg" alt="Project 3 Preview" class="project-preview">
-                <div class="project-content">
-                    <h3 class="project-title">Project 3</h3>
-                    <p class="project-description">A brief description of the third project.</p>
-                    <div class="project-links">
-                        <a href="#">Live Demo</a>
-                        <a href="#">Source Code</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <script>
-        // Particles.js Configuration
-        particlesJS('particles-js',
-            {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#64ffda"
-                    },
-                    "shape": {
-                        "type": "circle"
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#64ffda",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 3,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "repulse"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    }
-                },
-                "retina_detect": true
-            }
-        );
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
-        // Animate progress bars when they come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.width = entry.target.getAttribute('data-width');
-                }
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
             });
-        }, { threshold: 0.5 });
+        });
 
-        // Set initial width and observe all progress bars
-        document.querySelectorAll('.progress').forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            bar.setAttribute('data-width', width);
-            observer.observe(bar);
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#00ffbb'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#4d59ff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
         });
     </script>
 </body>
