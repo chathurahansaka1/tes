@@ -204,11 +204,11 @@
 
     <!-- Hero Section -->
 
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
-    <div class="container mx-auto px-6 text-center">
+<section id="home" class="min-h-screen flex flex-col items-center justify-center text-center">
+    <div class="container mx-auto px-6">
         <div class="floating" data-aos="fade-up">
             <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                Hi, I'm <span class="gradient-text">Chathura Hansaka</span>
+                <span id="typing-text"></span><span class="cursor">|</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-12">
                 Full Stack Developer & UI/UX Designer
@@ -222,16 +222,45 @@
                 </a>
             </div>
         </div>
-        <div class="mouse-container mt-10">
-            <svg width="35" height="55" viewBox="0 0 40 60" fill="none" class="mouse">
-                <rect x="2" y="2" width="36" height="56" rx="18" stroke="#00ffbb" stroke-width="3"/>
-                <rect x="18" y="12" width="4" height="8" rx="2" fill="#00ffbb" class="scroll-wheel"/>
-                <line x1="20" y1="2" x2="20" y2="22" stroke="#00ffbb" stroke-width="3"/>
-            </svg>
-        </div>
+    </div>
+    
+    <!-- Mouse Scroll Indicator (Centered) -->
+    <div class="mouse-container mt-10 flex justify-center">
+        <svg width="35" height="55" viewBox="0 0 40 60" fill="none" class="mouse">
+            <rect x="2" y="2" width="36" height="56" rx="18" stroke="#00ffbb" stroke-width="3"/>
+            <rect x="18" y="12" width="4" height="8" rx="2" fill="#00ffbb" class="scroll-wheel"/>
+            <line x1="20" y1="2" x2="20" y2="22" stroke="#00ffbb" stroke-width="3"/>
+        </svg>
     </div>
 </section>
-   
+
+<!-- Typing Animation & Inline CSS -->
+<style>
+    .cursor {
+        display: inline-block;
+        font-weight: bold;
+        animation: blink 0.7s infinite;
+        color: #00ffbb;
+    }
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+</style>
+
+<script>
+    const text = "Hi, I'm Chathura Hansaka";
+    let index = 0;
+    function typeEffect() {
+        if (index < text.length) {
+            document.getElementById("typing-text").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100);
+        }
+    }
+    window.onload = typeEffect;
+</script>
 
     <!-- About Section -->
     <section id="about" class="py-20">
